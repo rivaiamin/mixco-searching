@@ -1,0 +1,29 @@
+<div class="ui small basic buttons" ng-if="1 < pages.length || !autoHide">
+  <button class="ui button" 
+  	ng-if="boundaryLinks" 
+  	ng-class="{ disabled : pagination.current == 1 }" 
+  	ng-click="setCurrent(1)">
+  	<i class="angle double left icon"></i>
+  </button>
+  <button class="ui button" 
+  	ng-if="directionLinks" 
+  	ng-class="{ disabled : pagination.current == 1 }" 
+  	ng-click="setCurrent(pagination.current - 1)">
+  	<i class="angle left icon"></i>
+  </button>
+  <button class="ui button"
+  	 ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)" 
+  	 ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }"
+  	 ng-click="setCurrent(pageNumber)">
+  	{{ pageNumber }}
+  </button>
+  <button class="ui button"
+  	ng-if="directionLinks" 
+  	ng-class="{ disabled : pagination.current == pagination.last }"
+  	ng-click="setCurrent(pagination.current + 1)">
+  	<i class="angle right icon"></i></button>
+  <button class="ui button"
+   ng-if="boundaryLinks"  
+   ng-class="{ disabled : pagination.current == pagination.last }"
+   ng-click="setCurrent(pagination.last)"><i class="angle double right icon"></i></button>
+</div>

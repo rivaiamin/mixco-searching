@@ -1,0 +1,38 @@
+<div class="ui basic segment">
+	
+	<div class="ui breadcrumb">
+	  <a class="section">Admin</a>
+	  <i class="right angle icon divider"></i>
+	  <a class="section">Guest Book</a>
+	</div>
+  <h3 class="ui header"><i class="book icon"></i> Guest Book</h3>
+    <table class="ui red table">
+	  <thead>
+	    <tr><th>No</th>
+	    <th>Name</th>
+	    <th>Gender</th>
+	    <th>Age</th>
+	    <th>Email</th>
+	    <th>Phone</th>
+	    <th>Nationality</th>
+	    <!-- <th></th> -->
+	  </tr></thead><tbody>
+	    <tr dir-paginate="list in guest | orderBy:'-id' | itemsPerPage:limit" current-page="currentPage">
+	      <td>{{ ((currentPage-1)*limit)+$index+1 }} </td>
+	      <td>{{ list.name }}</td>
+	      <td>{{ list.gender }}</td>
+	      <td>{{ list.age }}</td>
+	      <td>{{ list.email }}</td>
+	      <td>{{ list.phone }}</td>
+	      <td><i class="{{ list.nationality }} flag"></i></td>
+	      <!-- <td>
+	      	<div class="ui basic icon buttons">
+			  <button class="ui button" ng-click="deleteCategory(list.id)"><i class="delete icon"></i></button>
+			</div>
+	      </td> -->
+	    </tr>
+	  </tbody>
+	</table>
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/pagination.tpl.html">
+    </dir-pagination-controls>
+</div>	

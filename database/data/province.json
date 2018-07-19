@@ -1,0 +1,134 @@
+[
+  {
+    "code":"JKT",
+    "province":"DKI Jakarta"
+  },
+  {
+    "code":"JABAR",
+    "province":"Jawa Barat"
+  },
+  {
+    "code":"JATENG",
+    "province":"Jawa Tengah"
+  },
+  {
+    "code":"DIY",
+    "province":"DI Yogyakarta"
+  },
+  {
+    "code":"JATIM",
+    "province":"Jawa Timur"
+  },
+  {
+    "code":"NAD",
+    "province":"Nanggroe Aceh Darussalam"
+  },
+  {
+    "code":"SUMUT",
+    "province":"Sumatera Utara"
+  },
+  {
+    "code":"SUMBAR",
+    "province":"Sumatera Barat"
+  },
+  {
+    "code":"RIAU",
+    "province":"Riau"
+  },
+  {
+    "code":"JMB",
+    "province":"Jambi"
+  },
+  {
+    "code":"SUMSEL",
+    "province":"Sumatera Selatan"
+  },
+  {
+    "code":"LMP",
+    "province":"Lampung"
+  },
+  {
+    "code":"KALBAR",
+    "province":"Kalimantan Barat"
+  },
+  {
+    "code":"KALTENG",
+    "province":"Kalimanatan Tengah"
+  },
+  {
+    "code":"KALSEL",
+    "province":"Kalimantan Selatan"
+  },
+  {
+    "code":"KALTIM",
+    "province":"Kalimantan Timur"
+  },
+  {
+    "code":"SULUT",
+    "province":"Sulawesi Utara"
+  },
+  {
+    "code":"SULTENG",
+    "province":"Sulawesi Tengah"
+  },
+  {
+    "code":"SULSEL",
+    "province":"Sulawesi Selatan"
+  },
+  {
+    "code":"SULRA",
+    "province":"Sulawesi Tenggara"
+  },
+  {
+    "code":"MLK",
+    "province":"Maluku"
+  },
+  {
+    "code":"BALI",
+    "province":"Bali"
+  },
+  {
+    "code":"NTB",
+    "province":"Nusa Tenggara Barat"
+  },
+  {
+    "code":"NTT",
+    "province":"Nusa Tenggara Timur"
+  },
+  {
+    "code":"PAPUA",
+    "province":"Papua"
+  },
+  {
+    "code":"BKL",
+    "province":"Bengkulu"
+  },
+  {
+    "code":"MALUT",
+    "province":"Maluku Utara"
+  },
+  {
+    "code":"BTN",
+    "province":"Banten"
+  },
+  {
+    "code":"BALBEL",
+    "province":"Kep. Bangka Belitung"
+  },
+  {
+    "code":"GRT",
+    "province":"Gorontalo"
+  },
+  {
+    "code":"KEPRI",
+    "province":"Kep. Riau"
+  },
+  {
+    "code":"PABAR",
+    "province":"Papua Barat "
+  },
+  {
+    "code":"SULBAR",
+    "province":"Sulawesi Barat"
+  }
+]

@@ -1,0 +1,201 @@
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Video Mapping Detail
+  </div>
+  <div class="image content">
+    <div class="ui big image">
+     
+      <video class="ui image" ng-src="{{ detail.videofile }}" controls>
+    </div>
+    <div class="description">
+	    <div class="ui relaxed divided list">
+		  <div class="item">
+		    <i class="map icon"></i>
+		    <div class="content">
+		      <a class="header">Province</a>
+		      <span editable-select="detail.province.id" e-name="province_id" e-form="rowform" e-required e-ng-options="prov.id as prov.province for prov in province">
+		      {{ detail.province.province }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="grid layout icon"></i>
+		    <div class="content">
+		      <a class="header">Travelling Category</a>
+		      <span editable-select="detail.category.id" e-name="category_id" e-form="rowform" e-required e-ng-options="cat.id as cat.category for cat in category">
+		      {{ detail.category.category }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="heart icon"></i>
+		    <div class="content">
+		      <a class="header">Special Interest</a>
+		      <span editable-select="detail.special_interest.id" e-name="special_interest_id" e-form="rowform" e-required e-ng-options="spec.id as spec.interest for spec in special">
+		      {{ detail.special_interest.interest }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="calendar icon"></i>
+		    <div class="content">
+		      <a class="header">Seasonality</a>
+		      <span editable-select="detail.seasonality.id" e-name="seasonality_id" e-form="rowform" e-required e-ng-options="season.id as season.seasonality for season in seasonality">
+		      {{ detail.seasonality.seasonality }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="money icon"></i>
+		    <div class="content">
+		      <a class="header">Budget/Wise</a>
+		      <span editable-select="detail.budget.id" e-name="budget_id" e-form="rowform" e-required e-ng-options="bud.id as bud.budget for bud in budget">
+		      {{ detail.budget.budget }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="users icon"></i>
+		    <div class="content">
+		      <a class="header">Number of Parties</a>
+		      <span editable-select="detail.parties.id" e-name="parties_id" e-form="rowform" e-required e-ng-options="part.id as part.number for part in parties">
+		      {{ detail.parties.number }}
+		      </span>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="food icon"></i>
+		    <div class="content">
+		      <a class="header">Interest</a>
+		      <span editable-select="detail.food_interest.id" e-name="food_interest_id" e-form="rowform" e-required e-ng-options="fd.id as fd.interest for fd in food">
+		      {{ detail.food_interest.interest }}
+		      </span>
+		    </div>
+		  </div>
+		</div>
+    </div>
+  </div>
+  <div class="actions">	
+  	<form editable-form name="rowform" onbeforesave="saveMapping($data, detail.id)" ng-show="rowform.$visible" class="ui form basic icon buttons">
+      <button type="submit" ng-disabled="rowform.$waiting" class="ui button">
+        <i class="save icon"></i>
+      </button>
+      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="ui button">
+        <i class="cancel icon"></i>
+      </button>
+    </form>
+    <div ng-show="!rowform.$visible" class="ui right labeled icon button" ng-click="rowform.$show()">
+      Edit Mapping
+      <i class="pencil icon"></i>
+    </div>
+  </div>
+</div>
+
+<div class="ui basic segment">
+	<div class="ui breadcrumb">
+	  <a class="section">Admin</a>
+	  <i class="right angle icon divider"></i>
+	  <a class="section">Video Mapping</a>
+	</div>
+  <h3 class="ui header"><i class="map layout icon"></i> Video Mapping</h3>
+    <form id="mappingForm" name="mappingForm" class="ui form" ng-submit="addMapping(input)" >
+	    <div class="fields">
+	      <div class="six wide field">
+	      	<label>Video Title</label>
+	        <select name="video_id" ng-model="input.video_id" ng-options="vid.id as vid.title for vid in video">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>Province</label>
+	        <select name="province_id" ng-model="input.province_id" ng-options="prov.id as prov.province for prov in province">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>Travelling Category</label>
+	      	<select name="category_id" ng-model="input.category_id" ng-options="cat.id as cat.category for cat in category">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	    </div>
+	    <div class="fields">
+	      <div class="six wide field">
+	      	<label>Budget/Wise</label>
+	        <select name="budget_id" ng-model="input.budget_id" ng-options="bud.id as bud.budget for bud in budget">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>Food Interest</label>
+	        <select name="food_interest_id" ng-model="input.food_interest_id" ng-options="fd.id as fd.interest for fd in food">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>Special Interest</label>
+	      	<select name="special_interest_id" ng-model="input.special_interest_id" ng-options="spec.id as spec.interest for spec in special">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	    </div>
+	    <div class="fields">
+	      <div class="six wide field">
+	      	<label>Seasonality</label>
+	        <select name="seasonality_id" ng-model="input.seasonality_id" ng-options="season.id as season.seasonality for season in seasonality">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>Number of Parties</label>
+	        <select name="parties_id" ng-model="input.parties_id" ng-options="part.id as part.number for part in parties">
+	          <option value="">--All--</option>
+	        </select>
+	      </div>
+	      <div class="five wide field">
+	      	<label>&nbsp;</label>
+	      	<button type="submit" class="ui fluid primary icon button"><i class="save icon"></i> Save</button>
+	      </div>
+	    </div>
+	  
+    </form>
+    <table class="ui red table">
+	  <thead>
+	    <tr><th>No</th>
+	    <th>Video Title</th>
+	    <th>Province</th>
+	    <th>Travel Category</th>
+	    <th></th>
+	  </tr></thead><tbody>
+	    <tr dir-paginate="list in mapping | orderBy:'-id' | itemsPerPage:limit" current-page="currentPage">
+	      <td>{{ ((currentPage-1)*limit)+$index+1 }} </td>
+	      <td>
+	      		<a href="/upload/{{ list.video.filename }}"> {{ list.video.title }}</a>
+	      </td>
+	      <td>
+	      	{{ list.province.province }}
+	      </td>
+	      <td>
+	      	{{ list.category.category }}
+	      </td>
+	      <td>
+	      	<!-- <form editable-form name="rowform" onbeforesave="saveMapping($data, list.id)" ng-show="rowform.$visible" class="ui form basic icon buttons" shown="inserted == list">
+	          <button type="submit" ng-disabled="rowform.$waiting" class="ui button">
+	            <i class="save icon"></i>
+	          </button>
+	          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="ui button">
+	            <i class="cancel icon"></i>
+	          </button>
+	        </form> -->
+	      	<div class="ui basic icon buttons">
+			  <button class="ui button" ng-click="detailMapping(list.id)"><i class="browser icon"></i></button>	
+			  <button class="ui button" ng-click="deleteMapping(list.id)"><i class="delete icon"></i></button>
+			</div>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/pagination.tpl.html">
+    </dir-pagination-controls>
+</div>	

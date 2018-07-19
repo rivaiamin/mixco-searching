@@ -1,0 +1,42 @@
+{
+  "name": "mix.co",
+  "description": "Travel Searching Video Application",
+  "main": "",
+  "authors": [
+    "Riva'i Amin <rivaiamin@mhs.uinjkt.ac.id>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "searching",
+    "video",
+    "application"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "^2.1.8",
+    "jquery": "^2.2.1",
+    "angular": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-superswipe": "^0.0.2",
+    "angular-touch": "^1.5.0",
+    "satellizer": "^0.14.0",
+    "angular-ui-router": "^0.2.18",
+    "uikit": "^2.25.0",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.0",
+    "angular-xeditable": "^0.1.10",
+    "angular-file-upload": "^2.2.0",
+    "angular-filter": "^0.5.8"
+  }
+}

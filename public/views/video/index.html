@@ -1,0 +1,67 @@
+<div class="ui basic segment">
+	
+	<div class="ui breadcrumb">
+	  <a class="section">Admin</a>
+	  <i class="right angle icon divider"></i>
+	  <a class="section">Travelling Video</a>
+	</div>
+  <h3 class="ui header"><i class="file video icon"></i> Travelling Video</h3>
+    <form id="videoForm" name="videoForm" class="ui form" ng-submit="addVideo(input)">
+      <div class="field">
+	    <label>Add New</label>
+	    <div class="fields">
+	      <div class="eight wide field">
+	        <input id="title" type="text" name="title" ng-model="input.title" placeholder="Video Title" required>
+	      </div>
+	      <div class="six wide field">
+	        <div class="ui icon fluid button" ngf-select name="filevideo" ng-model="filevideo" ngf-pattern="'video/*'"
+    ngf-accept="'video/*'"><i class="file video icon"></i> <span ng-if="filevideo.name == null"> Select File</span> {{ filevideo.name }}</div>
+	      </div>
+	      <div class="two wide field">
+	      	<button type="submit" class="ui primary icon button"><i class="save icon"></i> Save </button>
+	      </div>
+	    </div>
+	    <div ng-show="onProgress" class="ui indicating progress" progress data-percent="{{ progress }}">
+		  <div class="bar"></div>
+		  <div class="label">{{ progress }}% Uploaded</div>
+		</div>
+	  </div>
+    </form>
+    <table class="ui red table">
+	  <thead>
+	    <tr><th>No</th>
+	    <th>Title</th>
+	    <th>Video File</th>
+	    <th></th>
+	  </tr></thead><tbody>
+	    <tr dir-paginate="list in video | orderBy:'-id' | itemsPerPage:limit" current-page="currentPage">
+	      <td>{{ ((currentPage-1)*limit)+$index+1 }} </td>
+	      <td>
+	      	<span editable-text="list.title" e-name="title" e-form="rowform" e-required>
+	      		{{ list.title }}
+	      	</span>
+	      </td>
+	      <td>
+	      	<a class="ui icon button" href="/upload/{{ list.filename }}"><i class="download icon"></i>  Download
+	      	</a>
+	      </td>
+	      <td>
+	      	<form editable-form name="rowform" onbeforesave="saveVideo($data, list.id)" ng-show="rowform.$visible" class="ui form basic icon buttons" shown="inserted == list">
+	          <button type="submit" ng-disabled="rowform.$waiting" class="ui button">
+	            <i class="save icon"></i>
+	          </button>
+	          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="ui button">
+	            <i class="cancel icon"></i>
+	          </button>
+	        </form>
+	      	<div class="ui basic icon buttons" ng-show="!rowform.$visible">
+			  <button class="ui button" ng-click="rowform.$show()"><i class="edit icon"></i></button>	
+			  <button class="ui button" ng-click="deleteVideo(list.id)"><i class="delete icon"></i></button>
+			</div>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/pagination.tpl.html">
+    </dir-pagination-controls>
+</div>	

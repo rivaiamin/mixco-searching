@@ -1,0 +1,54 @@
+<div class="ui basic segment">
+	
+	<div class="ui breadcrumb">
+	  <a class="section">Admin</a>
+	  <i class="right angle icon divider"></i>
+	  <a class="section">Food Interest</a>
+	</div>
+  <h3 class="ui header"><i class="food icon"></i> Food Interest</h3>
+    <form id="foodForm" class="ui form" ng-submit="addFood(input)">
+      <div class="field">
+	    <label>Add New</label>
+	    <div class="fields">
+	      <div class="ten wide field">
+	        <input type="text" name="interest" ng-model="input.interest" placeholder="Food Interest Name">
+	      </div>
+	      <div class="two wide field">
+	      	<button type="submit" class="ui primary icon button"><i class="save icon"></i> Save </button>
+	      </div>
+	    </div>
+	  </div>
+    </form>
+    <table class="ui red table">
+	  <thead>
+	    <tr><th>No</th>
+	    <th>Food Interest</th>
+	    <th></th>
+	  </tr></thead><tbody>
+	    <tr dir-paginate="list in food | orderBy:'-id' | itemsPerPage:limit" current-page="currentPage">
+	      <td>{{ ((currentPage-1)*limit)+$index+1 }} </td>
+	      <td>
+	      	<span editable-text="list.interest" e-name="interest" e-form="rowform" e-required>
+	      	{{ list.interest }}
+	      	</span>
+	      </td>
+	      <td>
+	      	<form editable-form name="rowform" onbeforesave="saveFood($data, list.id)" ng-show="rowform.$visible" class="ui form basic icon buttons" shown="inserted == list">
+	          <button type="submit" ng-disabled="rowform.$waiting" class="ui button">
+	            <i class="save icon"></i>
+	          </button>
+	          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="ui button">
+	            <i class="cancel icon"></i>
+	          </button>
+	        </form>
+	      	<div class="ui basic icon buttons" ng-show="!rowform.$visible">
+			  <button class="ui button" ng-click="rowform.$show()"><i class="edit icon"></i></button>	
+			  <button class="ui button" ng-click="deleteFood(list.id)"><i class="delete icon"></i></button>
+			</div>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="views/pagination.tpl.html">
+    </dir-pagination-controls>
+</div>	
